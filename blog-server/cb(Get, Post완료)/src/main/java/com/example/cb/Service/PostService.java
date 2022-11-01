@@ -7,6 +7,7 @@ import com.example.cb.Repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -24,10 +25,21 @@ public class PostService {
     유저 저장
      */
 
-    public void save(PostDto postDto){
+    /*
+    public Post save(PostDto postDto){
         Post post = postMapper.toEntity(postDto);
-        postRepository.save(post);
+        if (postRepository.findBypostId(postDto.getPostId())) {
+            return postRepository.(post);
+        } else {
+            return postRepository.save(post);
+        }
     }
+    */
+
+    public List<Post> search(String name){
+        return postRepository.findBypostAuthor(name);
+    }
+    /*
     public void update(PostDto postDto){
         Optional<Post> post = postRepository.findById(postDto.getPost_like());
         if(post.isPresent()){
@@ -37,4 +49,6 @@ public class PostService {
         else
             System.exit(1);
     }
+    */
+
 }

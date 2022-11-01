@@ -7,6 +7,6 @@ import com.example.cb.VO.PostVo;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring") //mapstruct 인식
-public interface PostMapper extends GenericMapper<PostDto, Post> {
+public interface PostMapper extends EntityMapper<PostDto, Post> {
 
 }
